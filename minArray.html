@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Min Array</title>
+</head>
+<body>
+<input type="number" id="dauVao" onkeydown="Enter(event)">
+<button onclick="timkiem()">MIN</button>
+<p id="output"></p>
+<script>
+  var A = [];
+
+  //Bắt sư kiện phím Enter trong input
+  function Enter(event) {
+    if (event.keyCode == 13) {
+      let a = parseFloat(document.getElementById("dauVao").value);
+      A.push(a);
+      document.getElementById("dauVao").value = "";
+    }
+    document.getElementById("output").innerHTML = "Mảng: " + A;
+  }
+
+  //Hàm tìm kiếm giá trị nhỏ nhất trong mảng
+  function minArray(array) {
+    let min = array[0];
+    for (let i = array.length; i > 0; i--) {
+      if (array[i] < min) {
+        min = array[i];
+      }
+    }
+    return min;
+  }
+
+  //Hiện giá trị nhỏ nhất trong mảng
+  function timkiem() {
+    if (A.length == 0) {
+      alert("Mảng rỗng");
+    } else {
+      alert(minArray(A));
+    }
+  }
+
+</script>
+</body>
+</html>
